@@ -150,7 +150,7 @@ class parse_101(object): #报文解析
 class FileProcessorApp:
     def __init__(self, root):
         self.root = root
-        self.root.title("文件处理工具")
+        self.root.title("报文解析工具")
         self.root.geometry("400x200")  # 窗口大小：宽400，高200
         
         # 存储选中的文件路径
@@ -206,6 +206,7 @@ class FileProcessorApp:
         if not self.selected_file:
             messagebox.showwarning("提示", "请先选择文件！")
         else:
+            self.file_label.config(text=f"执行中，请勿关闭窗口")
             messagebox.showinfo("执行中", "点击确定开始执行")
             with open("解析结果.txt","w",encoding="utf-8") as f:
                 f.write("")
